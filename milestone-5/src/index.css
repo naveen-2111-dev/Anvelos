@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1A56DB;
+  --color-primary-dark: #1E429F;
+  --color-bg: #FFFFFF;
+  --color-sidebar: #F9FAFB;
+  --color-surface: #FFFFFF;
+  --color-border: #EAECF0;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-slate-900 font-sans antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white px-4 py-2.5 rounded-lg font-semibold transition-all active:scale-95 flex items-center gap-2 text-sm shadow-sm;
+  }
+  
+  .card {
+    @apply bg-surface rounded-xl shadow-sm border border-border;
+  }
+
+  .input-field {
+    @apply w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 outline-none focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all text-sm placeholder:text-slate-500 shadow-sm;
+  }
+
+  .table-header {
+    @apply px-6 py-3 text-[12px] font-semibold text-slate-500 uppercase tracking-wider text-left bg-[#F9FAFB] border-b border-border;
+  }
+
+  .table-row {
+    @apply hover:bg-slate-50 transition-colors border-b border-border last:border-0;
+  }
+
+  .badge {
+    @apply px-2 py-0.5 rounded-2xl text-[12px] font-medium;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
