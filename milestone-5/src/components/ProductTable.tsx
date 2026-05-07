@@ -1,6 +1,14 @@
 import React from 'react';
+import { Product } from '../services/api';
 
-const ProductTable = ({ products, onEdit, onDelete, isLoading }) => {
+interface ProductTableProps {
+  products: Product[];
+  onEdit: (product: Product) => void;
+  onDelete: (product: Product) => void;
+  isLoading: boolean;
+}
+
+const ProductTable: React.FC<ProductTableProps> = ({ products, onEdit, onDelete, isLoading }) => {
   if (isLoading) {
     return (
       <div className="space-y-4">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Sidebar = () => {
+const Sidebar: React.FC = () => {
   return (
     <aside className="w-64 bg-[#F9FAFB] min-h-screen flex flex-col border-r border-border">
       <div className="p-8 flex items-center gap-3">

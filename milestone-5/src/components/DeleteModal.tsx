@@ -1,9 +1,16 @@
 import React from 'react';
+import { Product } from '../services/api';
 
-const DeleteModal = ({ product, onConfirm, onCancel }) => {
+interface DeleteModalProps {
+  product: Product | null;
+  onConfirm: () => void;
+  onCancel: () => void;
+}
+
+const DeleteModal: React.FC<DeleteModalProps> = ({ product, onConfirm, onCancel }) => {
   return (
     <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-[2px] z-50 flex items-center justify-center p-4 animate-fade-in">
-      <div className="bg-white w-full max-w-sm rounded-[2rem] shadow-2xl overflow-hidden animate-scale-in text-center p-10">
+      <div className="bg-white w-full max-sm rounded-[2rem] shadow-2xl overflow-hidden animate-scale-in text-center p-10">
         <div className="w-20 h-20 bg-rose-50 text-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm">
           <i className="ph-bold ph-trash text-4xl"></i>
         </div>

@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { Product } from '../services/api';
 
-const ProductForm = ({ initialData, onSubmit, onCancel, products }) => {
+interface ProductFormProps {
+  initialData: Product | null;
+  onSubmit: (data: Partial<Product>) => void;
+  onCancel: () => void;
+  products: Product[];
+}
+
+interface FormErrors {
+  title?: string;
+  price?: string;
+  description?: string;
+}
+
+const ProductForm: React.FC<ProductFormProps> = ({ initialData, onSubmit, onCancel, products }) => {
   const [formData, setFormData] = useState({
     title: '',
-    price: '',
+    price: 0,
     description: '',
     images: ['https://placeimg.com/640/480/any']
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
 
   useEffect(() => {
     if (initialData) {
@@ -20,8 +34,8 @@ const ProductForm = ({ initialData, onSubmit, onCancel, products }) => {
     }
   }, [initialData]);
 
-  const validate = () => {
-    const newErrors = {};
+  const validate = (): boolean => {
+    const newErrors: FormErrors = {};
     if (!formData.title.trim()) newErrors.title = 'Title is required';
     if (!formData.price || formData.price <= 0) newErrors.price = 'Valid price is required';
     if (!formData.description.trim()) newErrors.description = 'Description is required';
@@ -35,7 +49,7 @@ const ProductForm = ({ initialData, onSubmit, onCancel, products }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
       onSubmit(formData);

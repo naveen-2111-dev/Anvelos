@@ -3,17 +3,17 @@ import Sidebar from './components/Sidebar';
 import ProductTable from './components/ProductTable';
 import ProductForm from './components/ProductForm';
 import DeleteModal from './components/DeleteModal';
-import { getProducts, addProduct, updateProduct, deleteProduct } from './services/api';
+import { getProducts, addProduct, updateProduct, deleteProduct, Product } from './services/api';
 import './index.css';
 
-const App = () => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
-  const [isFormOpen, setIsFormOpen] = useState(false);
-  const [editingProduct, setEditingProduct] = useState(null);
-  const [deletingProduct, setDeletingProduct] = useState(null);
+const App: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [deletingProduct, setDeletingProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     fetchProducts();
@@ -39,7 +39,7 @@ const App = () => {
     }
   };
 
-  const handleAddOrUpdate = async (formData) => {
+  const handleAddOrUpdate = async (formData: Partial<Product>) => {
     try {
       if (editingProduct) {
         const response = await updateProduct(editingProduct.id, formData);
