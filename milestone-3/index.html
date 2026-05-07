@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List | Circle Soft</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="font-['Plus_Jakarta_Sans'] bg-white">
+    <div id="app" class="min-h-screen flex flex-col">
+      <header class="header-bar">
+        <i class="ph-bold ph-caret-down text-lg"></i>
+        <h1 class="text-lg font-bold tracking-tight">To-Do List</h1>
+      </header>
+
+      <main class="flex-1 max-w-4xl mx-auto w-full px-6 py-12">
+        <section class="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <h2 class="text-4xl font-bold text-slate-800 mb-1">Today</h2>
+            <p id="current-date" class="text-slate-400 font-medium"></p>
+          </div>
+          <button id="add-task-btn" class="btn-primary">
+            <span>Add New Task</span>
+            <i class="ph-bold ph-plus text-sm"></i>
+          </button>
+        </section>
+
+        <div id="todo-list-container" class="space-y-3">
+          <!-- Todo list items will be injected here -->
+        </div>
+      </main>
+
+      <div id="modal-root"></div>
+      <div id="toast-root" class="fixed top-8 right-8 z-50 flex flex-col gap-2"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
