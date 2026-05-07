@@ -6,10 +6,6 @@ import { cartActions } from '../store/cartSlice';
 import { Minus, Plus, Star, Check } from 'lucide-react';
 import type { CartItem } from '../types';
 
-interface RouteParams {
-  id: string;
-}
-
 interface ColorOption {
   name: string;
   hex: string;
@@ -17,7 +13,7 @@ interface ColorOption {
 
 const COLORS: ColorOption[] = [
   { name: 'olive', hex: '#4F4631' },
-  { name: 'navy',  hex: '#314446' },
+  { name: 'navy', hex: '#314446' },
   { name: 'black', hex: '#313446' },
 ];
 
@@ -27,7 +23,7 @@ type Size = (typeof SIZES)[number];
 const sanitize = (raw: string): string => raw.replace(/[\[\]"]/g, '');
 
 const ProductDetailsPage: React.FC = () => {
-  const { id } = useParams<RouteParams>();
+  const { id } = useParams();
   const dispatch = useAppDispatch();
   const { selectedProduct: product, loading, error } = useAppSelector((s) => s.products);
 
@@ -58,7 +54,7 @@ const ProductDetailsPage: React.FC = () => {
   };
 
   if (loading) return <div className="container section">Loading product details…</div>;
-  if (error)   return <div className="container section">Error: {error}</div>;
+  if (error) return <div className="container section">Error: {error}</div>;
   if (!product) return null;
 
   const imageUrl = product.images.length > 0

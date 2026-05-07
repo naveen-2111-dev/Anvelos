@@ -1,4 +1,3 @@
-import { useSelector, useDispatch } from 'react-redux';
 import { cartActions } from '../store/cartSlice';
 import { Trash2, Minus, Plus, ArrowRight, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
