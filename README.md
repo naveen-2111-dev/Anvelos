@@ -5,4 +5,4 @@ Milestone 4: [git-assessment](https://github.com/naveen-2111-dev/milestone-4)</b
 Milestone 5: [Fake-Api](https://milestone-5-nine-sigma.vercel.app/)</br>
 Milestone 6: [E-Commerce](https://milestone-6-beta.vercel.app/)</br>
 Milestone 7: [E-Commerce](https://milestone-7.vercel.app/)</br>
-Milestone 8: </br>
+Milestone 8: [Aws-file-storage](https://milestone-8.vercel.app/)</br>
