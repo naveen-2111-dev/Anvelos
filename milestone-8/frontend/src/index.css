@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #0f172a;
+  --bg-darker: #020617;
+  --accent-primary: #8b5cf6;
+  --accent-secondary: #ec4899;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --glass-bg: rgba(30, 41, 59, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Customizing Amplify Authenticator to match our theme */
+[data-amplify-authenticator] {
+  --amplify-colors-background-primary: var(--glass-bg);
+  --amplify-colors-background-secondary: rgba(15, 23, 42, 0.8);
+  --amplify-colors-brand-primary-80: var(--accent-primary);
+  --amplify-colors-brand-primary-90: #7c3aed;
+  --amplify-colors-brand-primary-100: #6d28d9;
+  --amplify-colors-font-interactive: #fff;
+  --amplify-components-tabs-item-active-color: var(--accent-primary);
+  --amplify-components-tabs-item-active-border-color: var(--accent-primary);
+  --amplify-components-button-primary-background-color: var(--accent-primary);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  margin: 5% auto;
+  color: #fff;
+}
+
+.amplify-text {
+  color: #e2e8f0;
+}
+.amplify-label {
+  color: #cbd5e1;
+}
+.amplify-input {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+.amplify-button[data-variation='primary'] {
+  color: white !important;
+}
